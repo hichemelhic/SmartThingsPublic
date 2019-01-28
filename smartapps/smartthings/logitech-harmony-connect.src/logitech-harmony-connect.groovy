@@ -618,7 +618,7 @@ def getActivityListResponse(response, data) {
 					activities = it.value.response.data.activities.collect {
 						[id: it.key, name: it.value['name'], type: it.value['type']]
 					}
-					activities += [id: "PowerOff", name: "Activity OFF", type: "0"]
+					activities += [id: "-1", name: "PowerOff", type: "0"]
 				}
 				hub.sendEvent(name: "activities", value: new groovy.json.JsonBuilder(activities).toString(), descriptionText: "Activities are ${activities.collect { it.name }?.join(', ')}", displayed: false)
 			}
